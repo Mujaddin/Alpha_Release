@@ -4,18 +4,18 @@ var Employee ={
     getAllEmployee:function(callback){
         return db.query("select * from t_employee",callback);
     },
-    deleteEmployee: function(Employee, callback){
-        if(Employee.img_employee!=''){
-            var path = './public'+Employee.img_employee;
-            fs.unlink(path, function(err){
-                if(err){
-                    console.log(err);
-                }
-                console.log('Deleted Employee Sucessfully')
-            });
-        }
-        return db.query("delete from t_employee where eno=?", [Employee.epno],callback);
+    getEmployeeById:function(id,callback){
+        return db.query("select * from t_employee where Id=?",[id],callback);
+    }
+    ,
+    deleteEmployee: function(id, callback){
+        console.log("the id that been deleted"+id);
+            return db.query("delete from t_employee where Id=?", [id],callback);
     },
+    updateEmployee: function(id, Employee, callback){
+        return null;
+    }
+    ,
     addEmployee:function(Employee,callback){
         var dt = new Date(); //current date of server
         var text="";//random text
@@ -29,5 +29,9 @@ var Employee ={
             }
             console.log("employee was added");
         });
+        return db.query(`INSERT INTO t_employee(name_last, name_first, gender, date_birth, nationality, marital, mobile_no, div_sub, div_main, grade, email) 
+        VALUES 
+        (Employee.name_last,Employee.name_first,Employee.gender,Employee.date_birth,Employee.nation,Employee.marital,Employee.mobile_no,Employee.div_sub,Employee.div_main,Employee.grade,Employee.Email)`)
     }
 }
+module.exports=Employee;
