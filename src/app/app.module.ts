@@ -6,18 +6,22 @@ import {MdSelectModule, MdCheckbox,MdListModule,MdButtonModule,MdInputModule,MdT
 import{FlexLayoutModule} from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
+import {EmployeeDataService} from './service/employee-data.service';
 
 import{BtnComponent}from './btn/btn.component';
+import { EmployeesComponent } from './employees/employees.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
     HttpModule
   ],
-  providers: [],
+  providers: [EmployeeDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
