@@ -8,7 +8,7 @@ var cors = require('cors');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var employee = require('./routers/crudEmployee');
+var employee = require('./routes/crudEmployee');
 
 var app = express();
 
