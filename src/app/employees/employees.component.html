@@ -1,66 +1,22 @@
-<!--<div class="container">
-    <div class="row">
-        <div[hidden]="allEmployees.length>0" class="progress">
-            <div class="progress-bar progress-bar-striped active" role="progressbar" aria - valuenow="45" aria - valuemin="0" aria -
-                valuemax="100" style="width: 45%">
-                <span class="sr-only"> 45 % Complete</span></div>
-    </div>
-    <div class="row">
-        <table class="table">
-            <thead>
-                <th> Id
-                </th>
-                <th> First Name
-                </th>
-                <th> Last Name
-                </th>
-                <th> Gender
-                </th>
-                <th> Date of Birth 
-                </th>
-                <th> Nationality
-                </th>
-                <th> Marital Status
-                </th>
-                <th> Phone Number
-                </th>
-                <th> Sub Division
-                </th>
-                <th> Division
-                </th>
-                <th> Grade
-                </th>
-                <th> Email
-                </th>
-            </thead>
-            <tr * ngFor="let item of allEmployees ">
-                <td> { { item.Id } }
-                </td>
-                <td> { { item.lastname } }
-                </td>
-                <td> { { item.firstname } }
-                </td>
-                <td> { { item.gender } }
-                </td>
-                <td> { { item.dob } }
-                </td>
-                <td> { { item.nation } }
-                </td>
-                <td> { { item.maried } }
-                </td>
-                <td> { { item.phone } }
-                </td>
-                <td> { { item.subdiv } }
-                </td>
-                <td> { { item.division } }
-                </td>
-                <td> { { item.grade } }
-                </td>
-                <td> { { item.email } }
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
--->
-<p>app works</p>
+<div class="container">  
+    <div class="row"> <button (click)="addEmployee()">Add Student</button> <br/>  
+        <table class="table">  
+            <thead>  
+                <th>RollNo</th>  
+                <th>Name</th>  
+                <th>Mobile Number</th>  
+                <th>Photo</th>  
+                <th>Action</th>  
+            </thead>  
+            <tbody>  
+                <tr *ngFor="let item of allStudent ">  
+                    <td>{{item.rno}}</td>  
+                    <td>{{item.name | uppercase}}</td>  
+                    <td>{{item.mobile_no}}</td>  
+                    <td><span class="thumbnail"><img src="http://localhost:3000{{item.student_img}}" height="150px" width="150px" /></span></td>  
+                    <td><button (click)="delEmployee(item)"><span class="glyphicon glyphicon-trash"></span></button> </td>  
+                </tr>  
+            </tbody>  
+        </table>  
+    </div>  
+</div>  
