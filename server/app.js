@@ -22,7 +22,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json({
   limit:'5mb'
 }));
-app.use(bodyParser.urlencoded({ limit:'5mb', extended: true }));
+app.use(bodyParser.urlencoded({ limit:'5mb', extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
