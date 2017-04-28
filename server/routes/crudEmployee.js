@@ -27,33 +27,31 @@ router.post('/', function (req, res, next) {
     Employee.addEmployee(req.body, function (err, count) {
         if (err) {
             res.json(err);
-            
-            console.log("jamalalala post eror");
         } else {
             res.json(req.body);
         }
     });
 });
-router.delete('/:id',function(req,res,next){
-    
-    Employee.deleteEmployee(req.params.id, function(err,count){
-        if(err){
+router.delete('/:id', function (req, res, next) {
+
+    Employee.deleteEmployee(req.params.id, function (err, count) {
+        if (err) {
             res.json(err);
-        }else{
+        } else {
             res.json(count);
         }
-        
+
     });
 });
 
-router.put('/:id', function(req,res,next){
-    Employee.updateEmployee(req.params.id, req.body,function(err,rows){
-        if (err){
+router.put('/:id', function (req, res, next) {
+    Employee.updateEmployee(req.params.id, req.body, function (err, rows) {
+        if (err) {
             res.json(err);
-        }else{
+        } else {
             res.json(rows);
         }
     });
 });
 
-module.exports=router;
+module.exports = router;
