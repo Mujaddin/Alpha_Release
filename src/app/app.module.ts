@@ -10,7 +10,7 @@ import {EmployeeDataService} from './service/employee-data.service';
 
 import{BtnComponent}from './btn/btn.component';
 import { EmployeesComponent } from './employees/employees.component';
-import { FilterPipe } from './filter.pipe';
+import { FilterPipe } from './service/filter.pipe';
 
 
 @NgModule({

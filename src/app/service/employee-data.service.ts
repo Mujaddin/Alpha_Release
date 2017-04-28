@@ -6,12 +6,12 @@ import {
   RequestOptions
 } from '@angular/http';
 
-import { Employee } from './employee/employee';
+import { Employee } from '../employee/employee';
 import 'rxjs/Rx';
 
 @Injectable()
 export class EmployeeDataService {
-  public url: string = "htpps://localhost:3000/Employees";
+  public url: string = "https://localhost:3000/Employees";
   constructor(private _http: Http) { }
   getAllEmployee() {
     return this._http.get(this.url).map((response: Response) => response.json());
