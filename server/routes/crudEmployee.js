@@ -27,6 +27,8 @@ router.post('/', function (req, res, next) {
     Employee.addEmployee(req.body, function (err, count) {
         if (err) {
             res.json(err);
+            
+            console.log("jamalalala post eror");
         } else {
             res.json(req.body);
         }
