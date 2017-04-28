@@ -1,0 +1,17 @@
+<div class="form-body">
+  <form [formGroup]="formEmployee" (ngSubmit)="onSave(formEmployee.value)">
+    <div class="left-side">
+      
+      <mdl-textfield type="text" required label="First Name" id="firstName" mdInput placeholder="First Name" formControlName="firstName"
+        floating-label></mdl-textfield>
+      <mdl-textfield type="text" required label="Last Name" id="lastName" mdInput placeholder="Last Name" formControlName="lastName"
+        floating-label></mdl-textfield>
+      <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Date Of Birth" style="width: 300px"
+        formControlName="dob"></md2-datepicker>
+      <mdl-textfield type="text" label="Nationality" formControlName="nationality" floating-label></mdl-textfield>
+      <mdl-textfield type="text" pattern="-?[0-9,+]*(\.[0-9,+]+)?" error-msg="Input is not a number!" label="Phone" formControlName="phone"
+        floating-label></mdl-textfield>
+      <mdl-textfield type="text" label="Email" formControlName="email" floating-label></mdl-textfield>
+    </div>
+  </form>
+</div>

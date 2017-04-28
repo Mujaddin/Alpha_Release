@@ -9,28 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
-allEmployees: Employee[]=[];
-  constructor(private _dataEmployees:EmployeeDataService, private _router:Router) { }
+  allEmployees: Employee[] = [];
+  constructor(private _dataEmployees: EmployeeDataService, private _router: Router) { }
 
   ngOnInit() {
     this._dataEmployees.getAllEmployee().subscribe(
-      (data:Employee[])=>{
-        this.allEmployees=data;
+      (data: Employee[]) => {
+        this.allEmployees = data;
       },
-      function(error){
+      function (error) {
         console.log(error);
       },
-      function(){
+      function () {
         console.log("completed");
       });
-    }
-    addEmployee(){
-      this._router.navigate(['/addEmployee']);
-    }
-    delEmployee(item:Employee){
-      this._dataEmployees.deleteEmployee(item).subscribe{
-        ()
-      }
-    }
-
+  }
+  addEmployee() {
+    this._router.navigate(['/addEmployee']);
+  }
 }
