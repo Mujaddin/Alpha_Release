@@ -27,3 +27,35 @@ md-select{
     background-color: blue;
     bottom:0;
 }
+
+
+.img-employee-area{
+     float: left;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+    width: 20%;
+    padding-top: 20px;
+}
+/*.emp-img-add-icon {
+    position: absolute;
+    top: 7px;
+    left: 124px;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}*/
+.img-employee {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    right: 0px;
+    float:left;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+}

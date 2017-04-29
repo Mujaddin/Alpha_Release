@@ -1,4 +1,4 @@
-<div class="form-body">
+<body class="form-body">
   <form [formGroup]="formEmployee" (ngSubmit)="onSave(formEmployee.value)">
     <div class="left-side">
       <mdl-textfield type="text" required label="First Name" id="firstName" placeholder="First Name" formControlName="firstName"
@@ -15,9 +15,7 @@
       <mdl-textfield type="text" label="Marital Status" formControlName="marital" floating-label></mdl-textfield>
       <mdl-textfield type="text" pattern="-?[0-9,+]*(\.[0-9,+]+)?" error-msg="Input is not a number!" label="Phone" formControlName="phone"
         floating-label></mdl-textfield>
-
     </div>
-
     <div class="right-side">
       <mdl-textfield type="text" label="Sub Division" id="subDivision" formControlName="subdiv" floating-label></mdl-textfield>
       <mdl-textfield type="text" label="Status" id="status" formControlName="status" floating-label></mdl-textfield>
@@ -40,7 +38,15 @@
     </div>
     <footer id="button-edit"><button type="submit">submit</button></footer>
   </form>
-</div>
+  <div class="img-employee-area">
+    <div class="img-employee"  [ngStyle]="{'background-image': 'url(' + selectedImage + ')'}">
+      <label for="file-input" >
+      <md-icon class="emp-img-add-icon">add_a_photo</md-icon>
+      </label>
+      <input id="file-insert" type="file" (change)="fileChange($event)" accept=".png, .jpeg, .bmp, .jpg, .gif">
+    </div>
+  </div>
+</body>
 
 
 

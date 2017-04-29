@@ -3,7 +3,7 @@
   <span *ngFor="let emp of employees">
   <md-list-item [ngClass]="{'emp-selected':selectedList===emp.id}"  
   (click)="onSelectedEmployee(emp)">
-<img md-list-avatar src="." alt="User">
+<img md-list-avatar src="../../assets/unknown.png" alt="User">
   <p md-line>
     <span><b>{{emp.name_first}} {{emp.name_last}}</b></span>
   <span>|{{emp.date_birth|date:'dd MMMM yyyy'}}</span>
