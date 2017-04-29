@@ -1,0 +1,29 @@
+.left-side{
+   padding-left:20px; 
+     width: 35%;
+    height: 575px;
+    float: left;
+   }
+.right-side{
+   padding-left:20px; 
+     width: 35%;
+    height: 575px;
+    float: left;
+   }
+mdl-textfield{
+    width:100%;
+    /*position: relative;*/
+}
+md-select{
+    padding-top:10px; 
+    width: 100%;
+}
+.md-datepicker-input{
+    width: 100%;
+}
+#button-edit{
+    position: absolute;
+    width: 50px;
+    background-color: blue;
+    bottom:0;
+}

@@ -9,6 +9,16 @@ var cors = require('cors');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var employee = require('./routes/crudEmployee');
+var originsWhitelist=[
+  'http://localhost:4200'
+];
+var corsOptions={
+  origin: function(origin, callback){
+        var isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
+        callback(null, isWhitelisted);
+  },
+  credentials:true
+};
 
 var app = express();
 
@@ -17,7 +27,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(bodyParser.json({
   limit:'5mb'

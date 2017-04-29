@@ -1,17 +1,46 @@
 <div class="form-body">
   <form [formGroup]="formEmployee" (ngSubmit)="onSave(formEmployee.value)">
     <div class="left-side">
-      
-      <mdl-textfield type="text" required label="First Name" id="firstName" mdInput placeholder="First Name" formControlName="firstName"
+      <mdl-textfield type="text" required label="First Name" id="firstName" placeholder="First Name" formControlName="firstName"
         floating-label></mdl-textfield>
-      <mdl-textfield type="text" required label="Last Name" id="lastName" mdInput placeholder="Last Name" formControlName="lastName"
-        floating-label></mdl-textfield>
-      <md2-datepicker class="date-picker" openOnFocus="true" format="dd/MM/y" type="date" placeholder="Date Of Birth" style="width: 300px"
+      <mdl-textfield type="text" required label="Last Name" id="lastName" placeholder="Last Name" formControlName="lastName" floating-label></mdl-textfield>
+      <md-select placeholder="Gender">
+        <md-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </md-option>
+      </md-select>
+      <md2-datepicker class="date-picker" openOnFocus="true" format="DD/MM/YYYY" type="date" placeholder="Date Of Birth" style="width: 300px"
         formControlName="dob"></md2-datepicker>
       <mdl-textfield type="text" label="Nationality" formControlName="nationality" floating-label></mdl-textfield>
+      <mdl-textfield type="text" label="Marital Status" formControlName="marital" floating-label></mdl-textfield>
       <mdl-textfield type="text" pattern="-?[0-9,+]*(\.[0-9,+]+)?" error-msg="Input is not a number!" label="Phone" formControlName="phone"
         floating-label></mdl-textfield>
-      <mdl-textfield type="text" label="Email" formControlName="email" floating-label></mdl-textfield>
+
     </div>
+
+    <div class="right-side">
+      <mdl-textfield type="text" label="Sub Division" id="subDivision" formControlName="subdiv" floating-label></mdl-textfield>
+      <mdl-textfield type="text" label="Status" id="status" formControlName="status" floating-label></mdl-textfield>
+      <md2-datepicker class="date-picker" openOnFocus="true" format="DD/MM/YYYY" type="date" placeholder="Suspend Date" style="width: 500px"
+        formControlName="datesusp"></md2-datepicker>
+      <md2-datepicker class="date-picker" openOnFocus="true" format="DD/MM/YYYY" type="date" placeholder="Hired Date" style="width: 500px"
+        formControlName="datehire"></md2-datepicker>
+      <md-select placeholder="Grade">
+        <md-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </md-option>
+      </md-select>
+      <md-select placeholder="Division">
+        <md-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </md-option>
+      </md-select>
+      <mdl-textfield text="text" label="Location" id="location" formControlName="location" floating-label></mdl-textfield>
+      <mdl-textfield text="text" label="Email" id="email" formControlName="email" floating-label></mdl-textfield>
+    </div>
+    <footer id="button-edit"><button type="submit">submit</button></footer>
   </form>
 </div>
+
+
+

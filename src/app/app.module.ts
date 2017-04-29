@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { Validators, FormBuilder,FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{MdlModule} from '@angular-mdl/core';
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import {MaterialModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { Md2DatepickerModule }  from 'md2-datepicker';
+import {MdDatepickerModule }  from 'md2-datepicker';
+
 
 import { AppComponent } from './app.component';
 import {EmployeeDataService} from './service/employee-data.service';
@@ -27,12 +28,11 @@ import { FormEmployeeComponent } from './form-employee/form-employee.component';
   ],
   imports: [
     BrowserModule,
+MaterialModule,
     HttpModule,
     MdlModule, 
     BrowserAnimationsModule,
-    MdButtonModule, 
-    MdCheckboxModule,
-    FormsModule,
+    
     ReactiveFormsModule,
     Md2DatepickerModule.forRoot(),
   ],

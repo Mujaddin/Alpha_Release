@@ -1,17 +1,33 @@
 <div class="main-div">
     <div class="left-div">
-        <!--<list-employee></list-employee>-->
-        
-            <a md-fab routerLink="./Employees" class="floating-button">
-                <md-icon>Add</md-icon>
-            </a>
-      
-    </div>
-
+        <app-list-employee ></app-list-employee>
+           <!--<a md-fab routerLink="./Employees" class="floating-button">
+                <md-icon>+</md-icon>
+            </a>-->
+          </div>
 </div>
 
 <div class="right-div">
-    <!--<navigator-bar></navigator-bar>
-    <form-employee></form-employee>-->
-    <app-form-employee></app-form-employee>
+<md-tab-group>
+        <md-tab>
+            <ng-template md-tab-label><md-icon class="utility-status">person</md-icon></ng-template>
+            <app-form-employee></app-form-employee>
+        </md-tab>
+        <md-tab disabled="true">
+            <ng-template md-tab-label><md-icon class="utility-status">history</md-icon></ng-template>
+        </md-tab>
+        <md-tab disabled="true">
+            <ng-template md-tab-label><md-icon class="utility-status">layers</md-icon></ng-template>
+        </md-tab>
+        <md-tab disabled="true">
+            <ng-template md-tab-label><md-icon class="utility-status">wc</md-icon></ng-template>
+        </md-tab>
+        <md-tab disabled="true">
+            <ng-template md-tab-label><md-icon class="utility-status">home</md-icon></ng-template>
+        </md-tab>
+        <md-tab disabled="true">
+            <ng-template md-tab-label><md-icon class="utility-status">place</md-icon></ng-template>
+        </md-tab>
+    </md-tab-group>
+    
 </div>

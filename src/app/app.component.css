@@ -1,11 +1,12 @@
 
 .left-div {
-    position: absolute;
-    width: 375px;
-     height: auto;
+    width: 30%;
+height: 600px;
     top: 60px;   
     left: 0px;
-    float: left;
+        float: left;
+        overflow: hidden;
+    box-sizing: border-box;
     bottom: 0px;
     border: solid rgba(0, 0, 0, 0.5);
     border-width: 0px 1px 0px 0px;
@@ -13,20 +14,18 @@
 
 .right-div {
     min-width: 480px;
-    widows: 75%;
-    position: absolute;
-    width: auto;
-    height: auto;
-    top: 60px;
+    width: 70%;
+       top: 60px;
+  box-sizing: border-box;
     float:left;
-    right: 0px; /*delete this if no scroll bar*/
+  
     bottom: 0px;
-    /*background-color: blue;*/
+    background-color:aquamarine;
 }
 .floating-button {
   position: absolute;
-  right: 20px;
+  left: 22%;
   bottom: 50%;
-padding-top:10px; 
+
 
 }

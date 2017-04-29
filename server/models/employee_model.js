@@ -1,5 +1,6 @@
 var db = require('../dbconnection');
 var fs = require('fs');
+db.connect();
 var Employee = {
     getAllEmployee: function (callback) {
         return db.query("select * from t_employee", callback);

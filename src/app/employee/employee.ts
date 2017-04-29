@@ -5,12 +5,15 @@ export class Employee {
     public firstname:string,
     public gender:string,
     public dob:Date,
+    public datehire:Date,
+    public datesusp:Date,
     public nation:string,
     public maried:string,
     public phone:string, 
     public subdiv:string, 
     public division:string, 
     public grade:string, 
-    public email:string ){}
+    public email:string,
+    public imgpath:string, ){}
 
 }
