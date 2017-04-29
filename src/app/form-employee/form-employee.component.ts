@@ -1,6 +1,7 @@
-import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import{Validators,FormBuilder,FormControl,ReactiveFormsModule,FormGroup} from'@angular/forms';
-import{Employee}from '../employee/employee'
+import{Employee}from '../employee/employee';
+import{EmployeeDataService} from '../service/employee-data.service';
 @Component({
   selector: 'app-form-employee',
   templateUrl: './form-employee.component.html',
@@ -8,13 +9,26 @@ import{Employee}from '../employee/employee'
 })
 export class FormEmployeeComponent implements OnInit {
 formEmployee;
+formNew:FormGroup;
+
+@Input() empid;
+@Output() save = new EventEmitter();
+@Output() updte = new EventEmitter();
+@Output() delet = new EventEmitter();
+@Output() state = new EventEmitter();
+fileList:FileList;
+deletState:boolean;
+imgSelect: string;
+
  foods = [
     {value: 'male', viewValue: 'Male'},
     {value: 'female', viewValue: 'Female'}
   ];
-  constructor() { }
+  constructor(private formNewBuilder:FormBuilder,
+  private employeeHandle: EmployeeDataService) { }
 
   ngOnInit() {
+this.fileList= null,  
     this.formEmployee= new FormGroup({
       firstName:new FormControl(''),
       lastName:new FormControl(''),
@@ -31,6 +45,10 @@ formEmployee;
       maindiv: new FormControl(''),
       location:new FormControl(''),
        });
+  }
+
+  ngOnChanges(changes:SimpleChanges){
+
   }
 
 }
