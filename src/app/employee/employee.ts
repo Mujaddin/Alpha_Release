@@ -5,6 +5,7 @@ export class Employee {
     public firstname:string,
     public gender:string,
     public dob:Date,
+    public status:string,
     public datehire:Date,
     public datesusp:Date,
     public nation:string,
@@ -14,6 +15,7 @@ export class Employee {
     public division:string, 
     public grade:string, 
     public email:string,
-    public imgpath:string, ){}
+    public imgpath:string,
+    public name=firstname+' '+lastname, ){}
 
 }

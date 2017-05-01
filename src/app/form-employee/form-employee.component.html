@@ -1,5 +1,5 @@
 <body class="form-body">
-  <form [formGroup]="formEmployee" (ngSubmit)="onSave(formEmployee.value)">
+  <form [formGroup]="formEmployee">
     <div class="left-side">
       <mdl-textfield type="text" required label="First Name" id="firstName" placeholder="First Name" formControlName="firstName"
         floating-label></mdl-textfield>
@@ -36,7 +36,6 @@
       <mdl-textfield text="text" label="Location" id="location" formControlName="location" floating-label></mdl-textfield>
       <mdl-textfield text="text" label="Email" id="email" formControlName="email" floating-label></mdl-textfield>
     </div>
-    <footer id="button-edit"><button type="submit">submit</button></footer>
   </form>
   <div class="img-employee-area">
     <div class="img-employee"  [ngStyle]="{'background-image': 'url(' + selectedImage + ')'}">
@@ -46,6 +45,11 @@
       <input id="file-insert" type="file" (change)="fileChange($event)" accept=".png, .jpeg, .bmp, .jpg, .gif">
     </div>
   </div>
+
+  <div class="button-utility-area">
+    <button md-raised-button color="primary" class="emp-button" (click)="onSave(formEmployee.value)">Save Data</button>
+    <button md-raised-button color="" class="emp-button" (click)="onCancel()">Cancel</button>
+</div>
 </body>
 
 

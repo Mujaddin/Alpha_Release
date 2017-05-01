@@ -4,7 +4,7 @@ var Employee = require('../models/employee_model');
 
 
 router.get('/:id?', function (req, res, next) {
-    if (req.params.id) {
+      if (req.params.id) {
         Employee.getEmployeeById(req.params.id, function (err, rows) {
             if (err) {
                 res.json(err);
@@ -19,12 +19,15 @@ router.get('/:id?', function (req, res, next) {
             } else {
                 res.json(rows);
             }
+             console.log('NODE JS SERVER POST');
         });
     }
 });
 
-router.post('/', function (req, res, next) {
+router.post('/add/', function (req, res, next) {
+  
     Employee.addEmployee(req.body, function (err, count) {
+         console.log('NODE JS SERVER POST');
         if (err) {
             res.json(err);
         } else {

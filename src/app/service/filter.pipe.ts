@@ -1,12 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+
 @Pipe({
-  name: 'filter'
+  name: 'FilterPipe',
+  pure: false
 })
 export class FilterPipe implements PipeTransform {
-
-  transform(value: any, args?: any): any {
-    return null;
+employees:any;
+  transform(employees: any[], term: any): any {
+  
   }
 
 }
