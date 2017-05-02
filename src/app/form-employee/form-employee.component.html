@@ -24,7 +24,7 @@
       <md2-datepicker class="date-picker" openOnFocus="true" format="DD/MM/YYYY" type="date" placeholder="Hired Date" style="width: 500px"
         formControlName="datehire"></md2-datepicker>
          <mdl-textfield text="text" label="grade" id="grade" formControlName="grade" floating-label></mdl-textfield>
-      <md-select placeholder="Location">
+      <md-select placeholder="Location" formControlName="location">
         <md-option *ngFor="let loc of location" [value]="loc.value">
           {{loc.viewValue}}
         </md-option>
@@ -38,7 +38,7 @@
     </div>
   </form>
   <div class="img-employee-area">
-    <div class="img-employee"  [ngStyle]="{'background-image': '../../assets/anna12.jpg'}">
+    <div class="img-employee"  [ngStyle]="{'background-image': 'url(unknown.png)'}">
       <label for="file-input" >
       <md-icon class="emp-img-add-icon">add_a_photo</md-icon>
       </label>

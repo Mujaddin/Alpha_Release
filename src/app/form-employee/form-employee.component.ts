@@ -71,11 +71,11 @@ export class FormEmployeeComponent implements OnInit {
         subdiv: new FormControl(e.subdiv),
         status: new FormControl(e.status),
         datesusp: new FormControl(e.datesusp),
-        datehired: new FormControl(e.datehired),
+        datehire: new FormControl(e.datehired),
         grade: new FormControl(e.grade),
         gender: new FormControl(e.gender),
         maindiv: new FormControl(e.division),
-        location: new FormControl(""),
+        location: new FormControl(e.location),
       });
     } else {
       this.formEmployee = new FormGroup({
