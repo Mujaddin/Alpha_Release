@@ -36,15 +36,20 @@ export class EmployeeDataService {
     this.options = new RequestOptions({ headers: this.headers });
   }
   getAllEmployee(): any {
-    return this._http.get(this.url).delay(1000).toPromise()
-      .then(this.extractData)
+    return this._http.get(this.url).toPromise()
+      .then(response=>response.json() as Employee[])
       .catch(this.handleError);
   }
 
   getEmployeeWithId(id: any): any {
-    return this._http.get(this.url + "/?" + id).toPromise()       
-    .then(this.extractData)       
+
+    return this._http.get(this.url + "/" + id).toPromise()       
+    .then(resp => resp.json() as Employee)       
     .catch(this.handleError);
+
+    // return this._http.get(this.url + "/?" + id).toPromise()       
+    // .then(this.extractData)       
+    // .catch(this.handleError);
   }
 
   deleteEmployeeWithId(item: Employee): any {

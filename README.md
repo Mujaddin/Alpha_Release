@@ -1,5 +1,5 @@
-# Alpha_Release
-for alpha release not yet for public
+# Final_Release
+Search that work, use in google chrome and import "finalproject.sql" to "finalproject" database 
 
 ## Overview
 This project uses the following technologies:
@@ -9,7 +9,7 @@ This project uses the following technologies:
 
 ## Setting Up
 This project uses the default MySQL configuration from XAMPP, which uses the port 3306 with the following credentials:
-    * DB Name   : db_employee
+    * DB Name   : finalproject
     * Username  : root
     * Password  : 
 Please kindly edit the dbconnection.js file located in the *server* directory to reconfigure the database.

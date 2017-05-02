@@ -10,15 +10,16 @@
 <body>
   <md-nav-list>
     <span *ngFor="let emp of employees">
+      <p *ngIf="employeescount==0">Cant find the name that you search</p>
   <md-list-item [ngClass]="{'emp-selected':selectedList===emp.id}"  
   (click)="onSelectEmployee(emp)">
-<img md-list-avatar src={{emp.img_employee}} alt="User" >
+<img md-list-avatar src={{emp.imgpath}} alt="User" >
   <p md-line>
-    <span><b>{{emp.name_first}} {{emp.name_last}}</b></span>
-    <span>|{{emp.date_birth|date:'dd MMMM yyyy'}}</span>
+    <span><b>{{emp.firstname}} {{emp.lastname}}</b></span>
+    <span>|{{emp.dob|date:'dd MMMM yyyy'}}</span>
     </p>
-    <p md-line>{{emp.grade}},{{' '+emp.div_main}}</p>
-    <p md-line>{{emp.location}},{{' '+emp.mobile_no}}</p>
+    <p md-line>{{emp.grade}},{{' '+emp.division}}</p>
+    <p md-line>{{emp.location}},{{' '+emp.phone}}</p>
     <md-icon class="left-display-material-icons">playlist_play</md-icon>
     </md-list-item>
     <md-divider></md-divider>

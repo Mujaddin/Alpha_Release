@@ -5,12 +5,13 @@ import { Validators, FormBuilder, FormsModule, ReactiveFormsModule } from '@angu
 import { MdlModule } from '@angular-mdl/core';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Md2DatepickerModule } from 'md2-datepicker';
+import { Md2DatepickerRootModule } from 'md2-datepicker';
 
 import { AppComponent } from './app.component';
 import { EmployeeDataService } from './service/employee-data.service';
 
-import { EmployeeRouting } from './service/employee.routing'
+import{EmployeeService} from './service/employee.service';
+import { EmployeeRouting } from './service/employee.routing';
 import { FilterPipe } from './service/filter.pipe';
 import { SharedService } from './service/observable.service';
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
@@ -32,9 +33,9 @@ import { FormEmployeeComponent } from './form-employee/form-employee.component';
     MdlModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    Md2DatepickerModule.forRoot(),
+    Md2DatepickerRootModule,
   ],
-  providers: [EmployeeDataService, SharedService, EmployeeRouting],
+  providers: [EmployeeDataService, SharedService, EmployeeRouting,EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

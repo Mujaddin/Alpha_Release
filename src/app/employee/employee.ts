@@ -6,7 +6,7 @@ export class Employee {
     public gender:string,
     public dob:Date,
     public status:string,
-    public datehire:Date,
+    public datehired:Date,
     public datesusp:Date,
     public nation:string,
     public maried:string,
@@ -16,6 +16,7 @@ export class Employee {
     public grade:string, 
     public email:string,
     public imgpath:string,
-    public name=firstname+' '+lastname, ){}
+    public location:string,
+  ){}
 
 }

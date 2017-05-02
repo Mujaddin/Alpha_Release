@@ -1,10 +1,10 @@
 <body class="form-body">
-  <form [formGroup]="formEmployee">
+  <form [formGroup]="formEmployee" >
     <div class="left-side">
       <mdl-textfield type="text" required label="First Name" id="firstName" placeholder="First Name" formControlName="firstName"
         floating-label></mdl-textfield>
       <mdl-textfield type="text" required label="Last Name" id="lastName" placeholder="Last Name" formControlName="lastName" floating-label></mdl-textfield>
-      <md-select placeholder="Gender">
+      <md-select placeholder="Gender" formControlName="gender">
         <md-option *ngFor="let gen of gender" [value]="gen.value">
           {{gen.viewValue}}
         </md-option>
@@ -29,7 +29,7 @@
           {{loc.viewValue}}
         </md-option>
       </md-select>
-      <md-select placeholder="Division">
+      <md-select placeholder="Division" formControlName="maindiv">
         <md-option *ngFor="let div of division" [value]="div.value">
           {{div.viewValue}}
         </md-option>
