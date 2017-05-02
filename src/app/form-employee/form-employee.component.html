@@ -5,8 +5,8 @@
         floating-label></mdl-textfield>
       <mdl-textfield type="text" required label="Last Name" id="lastName" placeholder="Last Name" formControlName="lastName" floating-label></mdl-textfield>
       <md-select placeholder="Gender">
-        <md-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
+        <md-option *ngFor="let gen of gender" [value]="gen.value">
+          {{gen.viewValue}}
         </md-option>
       </md-select>
       <md2-datepicker class="date-picker" openOnFocus="true" format="DD/MM/YYYY" type="date" placeholder="Date Of Birth" style="width: 300px"
@@ -23,29 +23,28 @@
         formControlName="datesusp"></md2-datepicker>
       <md2-datepicker class="date-picker" openOnFocus="true" format="DD/MM/YYYY" type="date" placeholder="Hired Date" style="width: 500px"
         formControlName="datehire"></md2-datepicker>
-      <md-select placeholder="Grade">
-        <md-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
+         <mdl-textfield text="text" label="grade" id="grade" formControlName="grade" floating-label></mdl-textfield>
+      <md-select placeholder="Location">
+        <md-option *ngFor="let loc of location" [value]="loc.value">
+          {{loc.viewValue}}
         </md-option>
       </md-select>
       <md-select placeholder="Division">
-        <md-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
+        <md-option *ngFor="let div of division" [value]="div.value">
+          {{div.viewValue}}
         </md-option>
       </md-select>
-      <mdl-textfield text="text" label="Location" id="location" formControlName="location" floating-label></mdl-textfield>
       <mdl-textfield text="text" label="Email" id="email" formControlName="email" floating-label></mdl-textfield>
     </div>
   </form>
   <div class="img-employee-area">
-    <div class="img-employee"  [ngStyle]="{'background-image': 'url(' + selectedImage + ')'}">
+    <div class="img-employee"  [ngStyle]="{'background-image': '../../assets/anna12.jpg'}">
       <label for="file-input" >
       <md-icon class="emp-img-add-icon">add_a_photo</md-icon>
       </label>
       <input id="file-insert" type="file" (change)="fileChange($event)" accept=".png, .jpeg, .bmp, .jpg, .gif">
     </div>
   </div>
-
   <div class="button-utility-area">
     <button md-raised-button color="primary" class="emp-button" (click)="onSave(formEmployee.value)">Save Data</button>
     <button md-raised-button color="" class="emp-button" (click)="onCancel()">Cancel</button>

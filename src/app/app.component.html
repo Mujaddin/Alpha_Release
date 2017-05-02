@@ -1,6 +1,6 @@
 <div class="main-div">
     <div class="left-div">
-        <app-list-employee ></app-list-employee>
+        <app-list-employee (emp)="employeeListId" ></app-list-employee>
         <a md-fab routerLink="./Employees" class="floating-button">
             <md-icon>+</md-icon>
         </a>
@@ -13,7 +13,7 @@
             <ng-template md-tab-label>
                 <md-icon class="utility-status">person</md-icon>
             </ng-template>
-            <app-form-employee           ></app-form-employee>
+            <app-form-employee    [emp]="selectedEmployee"       ></app-form-employee>
         </md-tab>
         <md-tab disabled="true">
             <ng-template md-tab-label>

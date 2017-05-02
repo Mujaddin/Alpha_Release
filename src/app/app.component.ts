@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EmployeeDataService } from "app/service/employee-data.service";
 
 @Component({
@@ -7,6 +7,8 @@ import { EmployeeDataService } from "app/service/employee-data.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // @Input selectedEmployee :number
+  // @Output employeeSelected
   title = 'app works!';
-  private _employeedata: EmployeeDataService,
+ 
 }

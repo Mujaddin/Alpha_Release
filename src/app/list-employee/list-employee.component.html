@@ -1,12 +1,17 @@
+<div class="searchbar">
+  <md-icon class="searchbar-material-icons">search</md-icon>
+  <input #searchb class="searchbar-input" placeholder="Search" size="15" (keyup)="search(searchb.value)">
+  <md-icon mdTooltip="Sort employees by last name" class="searchbar-material-icons sort">sort</md-icon>
+  <md-icon mdTooltip="Filter employees" class="searchbar-material-icons filter">filter_list</md-icon>
+  <span class="seachbar-counter">{{employeescount}}</span>
+
+</div>
+
 <body>
-  <div class="searchbar">
-    <md-icon class="searchbar-material-icons">search</md-icon>
-    <input #searchb class="searchbar-input" placeholder="Search" size="15" (keyup)="search(searchb.value)">
-  </div>
   <md-nav-list>
     <span *ngFor="let emp of employees">
   <md-list-item [ngClass]="{'emp-selected':selectedList===emp.id}"  
-  (click)="onSelectedEmployee(emp)">
+  (click)="onSelectEmployee(emp)">
 <img md-list-avatar src={{emp.img_employee}} alt="User" >
   <p md-line>
     <span><b>{{emp.name_first}} {{emp.name_last}}</b></span>

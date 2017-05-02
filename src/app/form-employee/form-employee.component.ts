@@ -25,10 +25,23 @@ export class FormEmployeeComponent implements OnInit {
 
 
 
-  foods = [
+  gender = [
     { value: 'male', viewValue: 'Male' },
     { value: 'female', viewValue: 'Female' }
   ];
+
+ location = [
+    { value: 'bali', viewValue: 'Bali' },
+    { value: 'yogyakarta', viewValue: 'Yogyakarta' },
+    { value: 'bandung', viewValue: 'Bandung' },
+    { value: 'jakarta', viewValue: 'Jakarta' },    
+  ];
+
+   division = [
+    { value: 'swd-red', viewValue: 'SWD-RED' },
+    { value: 'cdc', viewValue: 'CDC ASTERIX' }
+  ];
+
   constructor(private formNewBuilder: FormBuilder,
     private _employeeData: EmployeeDataService,
   ) { }

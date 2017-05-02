@@ -5,3 +5,39 @@ body {
     height: 100%;
     width: 100%;
 }
+.seachbar-counter {
+    width: 100px;
+    height: 30px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 14px;
+    color:blueviolet;
+    background-color: palegoldenrod;
+}
+.emp-not-found {
+    width:100%;
+    background-color: rgba(242, 242, 242, 1);
+    padding: 40px 0px;
+    text-align: center;
+    font-style: italic;
+}
+.searchbar {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(104, 119, 202, 1);
+}
+.searchbar-input {
+height: 30px;
+width: 100%;
+    border: 0px;
+    font-size: 15px;
+    color: palegoldenrod;
+    background-color: rgb(104, 119, 202);
+}

@@ -37,6 +37,7 @@ export class ListEmployeeComponent implements OnInit {
   onSelectEmployee(item: any) {
     this.selectedEmployee = item;
     this.idSelectedEmployee == item.id;
+    console.log(this.selectedEmployee);
   }
 
   onEditData(item: Employee) {

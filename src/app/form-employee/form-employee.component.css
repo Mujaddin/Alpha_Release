@@ -38,13 +38,7 @@ md-select{
     width: 20%;
     padding-top: 20px;
 }
-/*.emp-img-add-icon {
-    position: absolute;
-    top: 7px;
-    left: 124px;
-    background-color: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-}*/
+
 .img-employee {
     position: absolute;
     height: 150px;
