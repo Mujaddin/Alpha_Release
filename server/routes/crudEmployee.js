@@ -24,8 +24,8 @@ router.get('/:id?', function (req, res, next) {
     }
 });
 
-router.post('/add/', function (req, res, next) {
-  
+router.post('/', function (req, res, next) {
+  console.log("node js angular success");
     Employee.addEmployee(req.body, function (err, count) {
          console.log('NODE JS SERVER POST');
         if (err) {

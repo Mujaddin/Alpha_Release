@@ -79,21 +79,21 @@ export class FormEmployeeComponent implements OnInit {
       });
     } else {
       this.formEmployee = new FormGroup({
-        firstName: new FormControl(''),
-        lastName: new FormControl(''),
-        dob: new FormControl(''),
-        nationality: new FormControl(''),
-        phone: new FormControl(''),
-        marital: new FormControl(''),
-        email: new FormControl(''),
-        subdiv: new FormControl(''),
-        status: new FormControl(''),
+        firstName: new FormControl('Muhammad'),
+        lastName: new FormControl('Jamaluddin'),
+        dob: new FormControl('1994-06-23T17:00:00.000Z'),
+        nationality: new FormControl('Indonesian'),
+        phone: new FormControl('+6281554267562'),
+        marital: new FormControl('Single'),
+        email: new FormControl('muhammad.jamaluddin@mitrais.com'),
+        subdiv: new FormControl('Java BootCamp'),
+        status: new FormControl('Contract'),
         datesusp: new FormControl(''),
-        datehire: new FormControl(''),
-        grade: new FormControl(''),
-         gender: new FormControl(''),
-        maindiv: new FormControl(''),
-        location: new FormControl(''),
+        datehire: new FormControl('2017-04-20T17:00:00.000Z'),
+        grade: new FormControl('SE-PG'),
+         gender: new FormControl('Male'),
+        maindiv: new FormControl('CDC AsteRx'),
+        location: new FormControl('jakarta'),
        
       });
     }
@@ -124,8 +124,7 @@ export class FormEmployeeComponent implements OnInit {
   }
 
   onSave(emp: Employee) {
-    // this.save.emit(emp);
-
+  this._employeeData.addEmployee(emp);
   }
 
   selectedEmployee() {

@@ -39,9 +39,6 @@
   </form>
   <div class="img-employee-area">
     <div class="img-employee"  [ngStyle]="{'background-image': 'url(unknown.png)'}">
-      <label for="file-input" >
-      <md-icon class="emp-img-add-icon">add_a_photo</md-icon>
-      </label>
       <input id="file-insert" type="file" (change)="fileChange($event)" accept=".png, .jpeg, .bmp, .jpg, .gif">
     </div>
   </div>

@@ -10,6 +10,7 @@ import { Md2DatepickerRootModule } from 'md2-datepicker';
 import { AppComponent } from './app.component';
 import { EmployeeDataService } from './service/employee-data.service';
 
+import { Ng2OrderModule } from 'ng2-order-pipe';
 import{EmployeeService} from './service/employee.service';
 import { EmployeeRouting } from './service/employee.routing';
 import { FilterPipe } from './service/filter.pipe';
@@ -29,6 +30,7 @@ import { FormEmployeeComponent } from './form-employee/form-employee.component';
     BrowserModule,
     MaterialModule,
     FormsModule,
+    Ng2OrderModule,
     HttpModule,
     MdlModule,
     BrowserAnimationsModule,

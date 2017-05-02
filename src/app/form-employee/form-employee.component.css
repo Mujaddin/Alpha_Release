@@ -7,7 +7,7 @@
 .right-side{
    padding-left:20px; 
      width: 35%;
-    height: 575px;
+    height: 550px;
     float: left;
    }
 mdl-textfield{
@@ -25,9 +25,15 @@ md-select{
     position: absolute;
     width: 50px;
     background-color: blue;
-    bottom:0;
+    bottom:50px;
 }
-
+.button-utility-area{
+    position:relative;
+    width: 100%;
+    bottom: 100px;
+ 
+    padding-left:40px; 
+}
 
 .img-employee-area{
      float: left;

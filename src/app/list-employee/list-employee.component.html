@@ -9,7 +9,7 @@
 
 <body>
   <md-nav-list>
-    <span *ngFor="let emp of employees">
+    <span *ngFor="let emp of employees| orderBy: lastname">
       <p *ngIf="employeescount==0">Cant find the name that you search</p>
   <md-list-item [ngClass]="{'emp-selected':selectedList===emp.id}"  
   (click)="onSelectEmployee(emp)">
