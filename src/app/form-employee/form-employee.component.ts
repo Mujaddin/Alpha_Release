@@ -42,8 +42,8 @@ export class FormEmployeeComponent implements OnInit {
     { value: 'swd-red', viewValue: 'SWD-RED' },
     { value: 'CDC AsteRx', viewValue: 'CDC ASTERIX' },
     { value: 'Services', viewValue: 'Services' },
-     { value: 'SWD-BLUE', viewValue: 'SWD-BLUE' },
-      { value: 'SWD-GREEN', viewValue: 'SWD-GREEN' },
+    { value: 'SWD-BLUE', viewValue: 'SWD-BLUE' },
+    { value: 'SWD-GREEN', viewValue: 'SWD-GREEN' },
   ];
 
   constructor(private formNewBuilder: FormBuilder,
@@ -61,7 +61,7 @@ export class FormEmployeeComponent implements OnInit {
   formMake(e: Employee) {
 
     if (e) {
-      this.imgSelect=e.imgpath;
+      this.imgSelect = e.imgpath;
       this.formEmployee = new FormGroup({
         firstName: new FormControl(e.firstname),
         lastName: new FormControl(e.lastname),
@@ -80,7 +80,7 @@ export class FormEmployeeComponent implements OnInit {
         location: new FormControl(e.location),
       });
     } else {
-      this.imgSelect="../../assets/unknown.jpg"
+      this.imgSelect = "../../assets/unknown.jpg"
       this.formEmployee = new FormGroup({
         firstName: new FormControl('Muhammad'),
         lastName: new FormControl('Jamaluddin'),
@@ -126,12 +126,24 @@ export class FormEmployeeComponent implements OnInit {
   }
 
   onSave(emp: Employee) {
-    this._employeeData.addEmployee(emp);
+    this._employeeData.addEmployee(emp).subscribe(
+      (data: any) => {
+        console.log(data);
+      },
+      function (error) {
+        console.log(error);
+      },
+      function () {
+        console.log("On Complete");
+      });
   }
 
-addImage(){
+  imageProcessing(photo) {
+    var readImage = new FileReader();
+    readImage.onload = (photo: any) => { this.imgSelect = photo.target.result; }
+    readImage.readAsDataURL(photo.target.files[0]);
+  }
 
-}
   selectedEmployee() {
     this._sharedService.getSelectedEmployee().subscribe(
       emp => {

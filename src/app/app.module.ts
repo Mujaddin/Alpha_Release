@@ -34,8 +34,8 @@ import { DialogFilterComponent } from './dialog-filter.component';
     MdlModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    // Md2DatepickerRootModule,
-Md2DatepickerModule.forRoot(),
+    Md2DatepickerRootModule,
+// Md2DatepickerModule.forRoot(),
   ],
    entryComponents: [ 
     DialogFilterComponent

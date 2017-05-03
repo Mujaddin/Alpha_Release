@@ -44,9 +44,11 @@ export class EmployeeDataService {
 
   addEmployee(item: Employee): any {
     let body = JSON.stringify(item);
-    return this._http.post(this.url, body, this.options).toPromise()
-    .then(this.extractData)       
-    .catch(this.handleError);
+    console.log(body);
+    let header=new Headers();
+    header.append('Content-Type','application/json');
+    let res=new RequestOptions({headers:header});
+    return this._http.post(this.url, body, res).map((res:Response)=>res.json());
   }
 
   editEmployeeWithId(item: Employee): any {

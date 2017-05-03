@@ -1,5 +1,5 @@
 <body class="form-body">
-  <form [formGroup]="formEmployee" >
+  <form [formGroup]="formEmployee">
     <div class="left-side">
       <mdl-textfield type="text" required label="First Name" id="firstName" placeholder="First Name" formControlName="firstName"
         floating-label></mdl-textfield>
@@ -23,7 +23,7 @@
         formControlName="datesusp"></md2-datepicker>
       <md2-datepicker class="date-picker" openOnFocus="true" format="DD/MM/YYYY" type="date" placeholder="Hired Date" style="width: 500px"
         formControlName="datehire"></md2-datepicker>
-         <mdl-textfield text="text" label="grade" id="grade" formControlName="grade" floating-label></mdl-textfield>
+      <mdl-textfield text="text" label="grade" id="grade" formControlName="grade" floating-label></mdl-textfield>
       <md-select placeholder="Location" formControlName="location">
         <md-option *ngFor="let loc of location" [value]="loc.value">
           {{loc.viewValue}}
@@ -37,15 +37,13 @@
       <mdl-textfield text="text" label="Email" id="email" formControlName="email" floating-label></mdl-textfield>
     </div>
   </form>
-<div class="img-employee">
-    <img class="img-employee-area" src={{imgSelect}}  alt="User" >
-     <!--<img src="unknown.png" alt="User" (click)="insertImage()">-->
-</div>
+  <div class="img-employee" (click)="hiddenBtn.click()">
+    <input #hiddenBtn type="file" hidden="hidden" accept="image/*" (change)="imageProcessing($event)">
+    <img class="img-employee-area" [src]="imgSelect" alt="User" >
+
+  </div>
   <div class="button-utility-area">
     <button md-raised-button color="primary" class="emp-button" (click)="onSave(formEmployee.value)">Save Data</button>
     <button md-raised-button color="" class="emp-button" (click)="onCancel()">Cancel</button>
-</div>
+  </div>
 </body>
-
-
-

@@ -20,7 +20,7 @@ var Employee = {
     }
     ,
     addEmployee: function (Employee, callback) {
-        sqlquery = ("INSERT INTO t_employee (`name_first`,`mobile_no`, `name_last`, `div_main`, `status`, `gender`, `date_birth`, `nationality`, `grade`, `marital`, `div_sub`, `img_employee`, `email`,`date_susp`,`date_hired`) VALUES ('" + Employee.firstname + "','" + Employee.phone + "','" + Employee.lastname + "','" + Employee.division + "','" + Employee.status + "','" + Employee.gender + "','" + Employee.dob + "','" + Employee.nation + "','" + Employee.grade + "','" + Employee.maried + "','" + Employee.subdiv + "','" + Employee.imgpath + "','" + Employee.email + "','" + Employee.datesusp + "','" + Employee.datehired + "')");
+        sqlquery = ("INSERT INTO t_employee (`firstname`,`phone`,`lastname`,`division`,`status`,`gender`,`dob`,`nation`,`grade`,`maried`,`subdiv`, `imgpath`, `email`,`datesusp`,`datehired`) VALUES ('" + Employee.firstName + "','" + Employee.phone + "','" + Employee.lastName + "','" + Employee.maindiv + "','" + Employee.status + "','" + Employee.gender + "','" + Employee.dob + "','" + Employee.nationality + "','" + Employee.grade + "','" + Employee.marital + "','" + Employee.subdiv + "','" + Employee.imgpath + "','" + Employee.email + "','" + Employee.datesusp + "','" + Employee.datehire + "')");
   console.log("add employee success");
         return db.query(sqlquery, callback);
 
