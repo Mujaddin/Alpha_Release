@@ -37,11 +37,10 @@
       <mdl-textfield text="text" label="Email" id="email" formControlName="email" floating-label></mdl-textfield>
     </div>
   </form>
-  <div class="img-employee-area">
-    <div class="img-employee"  [ngStyle]="{'background-image': 'url(unknown.png)'}">
-      <input id="file-insert" type="file" (change)="fileChange($event)" accept=".png, .jpeg, .bmp, .jpg, .gif">
-    </div>
-  </div>
+<div class="img-employee">
+    <img class="img-employee-area" src={{imgSelect}}  alt="User" >
+     <!--<img src="unknown.png" alt="User" (click)="insertImage()">-->
+</div>
   <div class="button-utility-area">
     <button md-raised-button color="primary" class="emp-button" (click)="onSave(formEmployee.value)">Save Data</button>
     <button md-raised-button color="" class="emp-button" (click)="onCancel()">Cancel</button>

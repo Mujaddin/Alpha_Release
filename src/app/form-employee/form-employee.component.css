@@ -47,6 +47,7 @@ md-select{
 
 .img-employee {
     position: absolute;
+    top:10px;
     height: 150px;
     width: 150px;
     right: 0px;
@@ -58,4 +59,14 @@ md-select{
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
     box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+}
+
+.img-employee-area{
+    position: relative;
+    padding-top: 0px;
+    z-index: -1;
+    width: 150px;
+    height: 150px;
+    border-radius: inherit;
+   top:0px;
 }

@@ -44,3 +44,6 @@ width: 100%;
     color: palegoldenrod;
     background-color: rgb(104, 119, 202);
 }
+.emp-selected{
+    background-color: aquamarine;
+}

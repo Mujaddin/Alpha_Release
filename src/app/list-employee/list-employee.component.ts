@@ -60,7 +60,7 @@ export class ListEmployeeComponent implements OnInit {
   }
   onSelectEmployee(item: any) {
     this.selectedEmployee = item;
-    this.idSelectedEmployee == item.id;
+    this.idSelectedEmployee = item.id;
     this._employeeService.setSelectedEmployee(item);
 
   }

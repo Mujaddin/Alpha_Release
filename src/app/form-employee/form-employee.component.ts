@@ -20,7 +20,6 @@ export class FormEmployeeComponent implements OnInit {
 
   formEmployee: FormGroup;
   formNew: FormGroup;
-
   fileList: FileList;
   deletState: boolean;
   imgSelect: string;
@@ -60,6 +59,7 @@ export class FormEmployeeComponent implements OnInit {
   formMake(e: Employee) {
 
     if (e) {
+      this.imgSelect=e.imgpath;
       this.formEmployee = new FormGroup({
         firstName: new FormControl(e.firstname),
         lastName: new FormControl(e.lastname),
@@ -78,6 +78,7 @@ export class FormEmployeeComponent implements OnInit {
         location: new FormControl(e.location),
       });
     } else {
+      this.imgSelect="../../assets/unknown.jpg"
       this.formEmployee = new FormGroup({
         firstName: new FormControl('Muhammad'),
         lastName: new FormControl('Jamaluddin'),
@@ -91,10 +92,9 @@ export class FormEmployeeComponent implements OnInit {
         datesusp: new FormControl(''),
         datehire: new FormControl('2017-04-20T17:00:00.000Z'),
         grade: new FormControl('SE-PG'),
-         gender: new FormControl('Male'),
+        gender: new FormControl('Male'),
         maindiv: new FormControl('CDC AsteRx'),
         location: new FormControl('jakarta'),
-       
       });
     }
 
@@ -118,15 +118,18 @@ export class FormEmployeeComponent implements OnInit {
         grade: this.emp.grade,
         maindiv: this.emp.division,
         location: this.emp.location,
-        gender:this.emp.gender,
+        gender: this.emp.gender,
       });
     }
   }
 
   onSave(emp: Employee) {
-  this._employeeData.addEmployee(emp);
+    this._employeeData.addEmployee(emp);
   }
 
+addImage(){
+
+}
   selectedEmployee() {
     this._sharedService.getSelectedEmployee().subscribe(
       emp => {
