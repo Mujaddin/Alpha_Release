@@ -41,7 +41,9 @@ export class FormEmployeeComponent implements OnInit {
   division = [
     { value: 'swd-red', viewValue: 'SWD-RED' },
     { value: 'CDC AsteRx', viewValue: 'CDC ASTERIX' },
-    { value: 'Services', viewValue: 'Services' }
+    { value: 'Services', viewValue: 'Services' },
+     { value: 'SWD-BLUE', viewValue: 'SWD-BLUE' },
+      { value: 'SWD-GREEN', viewValue: 'SWD-GREEN' },
   ];
 
   constructor(private formNewBuilder: FormBuilder,
@@ -70,7 +72,7 @@ export class FormEmployeeComponent implements OnInit {
         email: new FormControl(e.email),
         subdiv: new FormControl(e.subdiv),
         status: new FormControl(e.status),
-        datesusp: new FormControl(e.datesusp),
+        datesusp: new FormControl(""),
         datehire: new FormControl(e.datehired),
         grade: new FormControl(e.grade),
         gender: new FormControl(e.gender),
@@ -113,7 +115,7 @@ export class FormEmployeeComponent implements OnInit {
         email: this.emp.email,
         subdiv: this.emp.subdiv,
         status: this.emp.status,
-        datesusp: this.emp.datesusp,
+        datesusp: " ",
         datehire: this.emp.datehired,
         grade: this.emp.grade,
         maindiv: this.emp.division,
