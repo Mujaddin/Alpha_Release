@@ -1,15 +1,15 @@
 <div class="searchbar">
   <md-icon class="searchbar-material-icons">search</md-icon>
   <input #searchb class="searchbar-input" placeholder="Search" size="15" (keyup)="search(searchb.value)">
-  <md-icon mdTooltip="Sort employees by last name" class="searchbar-material-icons sort">sort</md-icon>
-  <md-icon mdTooltip="Filter employees" class="searchbar-material-icons filter">filter_list</md-icon>
+  <md-icon mdTooltip="Sort employees by last name" class="searchbar-material-icons sort" (click)="sort()">sort</md-icon>
+  <md-icon mdTooltip="Filter employees" class="searchbar-material-icons filter" (click)="openFilter()">filter_list</md-icon>
   <span class="seachbar-counter">{{employeescount}}</span>
 
 </div>
 
 <body>
   <md-nav-list>
-    <span *ngFor="let emp of employees| orderBy: lastname">
+    <span *ngFor="let emp of employees">
       <p *ngIf="employeescount==0">Cant find the name that you search</p>
   <md-list-item [ngClass]="{'emp-selected':selectedList===emp.id}"  
   (click)="onSelectEmployee(emp)">

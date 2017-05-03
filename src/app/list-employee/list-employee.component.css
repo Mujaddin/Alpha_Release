@@ -15,6 +15,9 @@ body {
     color:blueviolet;
     background-color: palegoldenrod;
 }
+.searchbar-material-icons{
+    cursor:pointer;
+}
 .emp-not-found {
     width:100%;
     background-color: rgba(242, 242, 242, 1);

@@ -9,22 +9,22 @@ import { Md2DatepickerRootModule } from 'md2-datepicker';
 
 import { AppComponent } from './app.component';
 import { EmployeeDataService } from './service/employee-data.service';
+import { EmployeeService } from './service/employee.service';
 
-
-import{EmployeeService} from './service/employee.service';
 import { EmployeeRouting } from './service/employee.routing';
 import { FilterPipe } from './service/filter.pipe';
 import { SharedService } from './service/observable.service';
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { FormEmployeeComponent } from './form-employee/form-employee.component';
-
+import { DialogFilterComponent } from './dialog-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterPipe,
     ListEmployeeComponent,
-    FormEmployeeComponent
+    FormEmployeeComponent,
+    DialogFilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,10 @@ import { FormEmployeeComponent } from './form-employee/form-employee.component';
     ReactiveFormsModule,
     Md2DatepickerRootModule,
   ],
-  providers: [EmployeeDataService, SharedService, EmployeeRouting,EmployeeService],
+   entryComponents: [ 
+    DialogFilterComponent
+  ],
+  providers: [EmployeeDataService, SharedService, EmployeeRouting, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
