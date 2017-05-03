@@ -5,7 +5,7 @@ import { Validators, FormBuilder, FormsModule, ReactiveFormsModule } from '@angu
 import { MdlModule } from '@angular-mdl/core';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Md2DatepickerRootModule } from 'md2-datepicker';
+import { Md2DatepickerRootModule,Md2DatepickerModule } from 'md2-datepicker';
 
 import { AppComponent } from './app.component';
 import { EmployeeDataService } from './service/employee-data.service';
@@ -34,7 +34,8 @@ import { DialogFilterComponent } from './dialog-filter.component';
     MdlModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    Md2DatepickerRootModule,
+    // Md2DatepickerRootModule,
+Md2DatepickerModule.forRoot(),
   ],
    entryComponents: [ 
     DialogFilterComponent
