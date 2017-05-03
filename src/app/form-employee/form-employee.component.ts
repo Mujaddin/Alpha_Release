@@ -82,7 +82,7 @@ export class FormEmployeeComponent implements OnInit {
     } else {
       this.imgSelect = "../../assets/unknown.jpg"
       this.formEmployee = new FormGroup({
-        firstName: new FormControl('Muhammad'),
+        firstName: new FormControl('Muhammad',Validators.compose([Validators.required])),
         lastName: new FormControl('Jamaluddin'),
         dob: new FormControl('1994-06-23T17:00:00.000Z'),
         nationality: new FormControl('Indonesian'),
