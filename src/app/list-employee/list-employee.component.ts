@@ -18,6 +18,7 @@ export class ListEmployeeComponent implements OnInit {
   selectedEmployee: any = 0;
   idSelectedEmployee: number;
   employeescount: number;
+  deleteState:boolean=true;
   sortAsc: boolean;
   private subscription: Subscription;
 
@@ -62,7 +63,7 @@ export class ListEmployeeComponent implements OnInit {
     this.selectedEmployee = item;
     this.idSelectedEmployee = item.id;
     this._employeeService.setSelectedEmployee(item);
-
+    this.deleteState=false;
   }
 
   onEditData(item: Employee) {
@@ -75,12 +76,16 @@ export class ListEmployeeComponent implements OnInit {
       .then(() => this.getAllEmployee());
   }
 
-  onDeleteData(item: Employee) {
-    this._employeedata.deleteEmployeeWithId(item)
+  onDeleteData(item: Employee,id:number) {
+    this._employeedata.deleteEmployeeWithId(item,id)
       .then(() => this.getAllEmployee());
   }
   //service selain CRUD
-
+delete(){
+  this.onDeleteData(this.selectedEmployee,this.idSelectedEmployee);
+  this.idSelectedEmployee=undefined;
+  this.deleteState=true;
+}
   openFilter() {
     let dialogRef = this.dialog.open(DialogFilterComponent);
     dialogRef.afterClosed().subscribe(result => {

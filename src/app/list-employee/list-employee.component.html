@@ -1,8 +1,9 @@
 <div class="searchbar">
-  <md-icon class="searchbar-material-icons">search</md-icon>
+  <md-icon class="material-icons">search</md-icon>
   <input #searchb class="searchbar-input" placeholder="Search" size="15" (keyup)="search(searchb.value)">
-  <md-icon mdTooltip="Sort employees by last name" class="searchbar-material-icons sort" (click)="sort()">sort</md-icon>
-  <md-icon mdTooltip="Filter employees button" class="searchbar-material-icons filter" (click)="openFilter()">filter_list</md-icon>
+ <md-icon mdTooltip="Delete Selected Employee" class="material-icons delete" [hidden]="deleteState"   (click)="delete()">delete</md-icon>
+  <md-icon mdTooltip="Sort employees by last name" class="material-icons sort" (click)="sort()">sort</md-icon>
+   <md-icon mdTooltip="Filter employees button" class="material-icons filter" (click)="openFilter()">filter_list</md-icon>
   <span class="seachbar-counter">{{employeescount}}</span>
 
 </div>

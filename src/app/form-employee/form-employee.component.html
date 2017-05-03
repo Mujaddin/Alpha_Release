@@ -43,7 +43,7 @@
 
   </div>
   <div class="button-utility-area">
-    <button md-raised-button color="primary" class="emp-button" (click)="onSave(formEmployee.value)">Save Data</button>
+    <button md-raised-button color="primary" class="emp-button" (click)="onSave(formEmployee.value)" [disabled]="!formEmployee.valid">Save Data</button>
     <button md-raised-button color="" class="emp-button" (click)="onCancel()">Cancel</button>
   </div>
 </body>

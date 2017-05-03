@@ -15,7 +15,7 @@ body {
     color:blueviolet;
     background-color: palegoldenrod;
 }
-.searchbar-material-icons{
+.material-icons{
     cursor:pointer;
 }
 .emp-not-found {
@@ -45,5 +45,5 @@ width: 100%;
     background-color: rgb(104, 119, 202);
 }
 .emp-selected{
-    background-color: aquamarine;
+    background-color:orange;
 }

@@ -36,8 +36,8 @@ export class EmployeeDataService {
 
   }
 
-  deleteEmployeeWithId(item: Employee): any {
-    return this._http.delete(this.url + "/?" + item.id, this.options).toPromise()       
+  deleteEmployeeWithId(item: Employee,id:number): any {
+    return this._http.delete(this.url + "/" + id, this.options).toPromise()       
     .then(this.extractData)       
     .catch(this.handleError);
   }
