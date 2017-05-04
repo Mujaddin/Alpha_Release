@@ -14,7 +14,7 @@ var Employee = {
         return db.query("delete from t_employee where Id=?", [id], callback);
     },
     updateEmployee: function (id, Employee, callback) {
-        sqlquery = ("UPDATE t_employee SET `location`='"+Employee.location+"',`firstname`='" + Employee.firstName + "',`phone`='" + Employee.phone + "',`lastname`='" + Employee.lastName + "',`division`='" + Employee.maindiv + "',`status`='" + Employee.status + "',`gender`='" + Employee.gender + "',`dob`='" + Employee.dob + "',`nation`='" + Employee.nationality + "', `grade`='" + Employee.grade + "', `maried`='" + Employee.marital + "',`subdiv`='" + Employee.subdiv + "',`imgpath`='" + Employee.imgpath + "',`email`='" + Employee.email + "',`date_susp`='" + Employee.datesusp + "',`date_hired`='" + Employee.datehire + "' WHERE id=" + id + "");
+        sqlquery = ("UPDATE t_employee SET `firstname`='" + Employee.firstName + "',`phone`='" + Employee.phone + "',`lastname`='" + Employee.lastName + "',`division`='" + Employee.maindiv + "',`status`='" + Employee.status + "',`gender`='" + Employee.gender + "',`dob`='" + Employee.dob + "',`nation`='" + Employee.nationality + "', `grade`='" + Employee.grade + "', `maried`='" + Employee.marital + "',`subdiv`='" + Employee.subdiv + "',`imgpath`='" + Employee.imgpath + "',`email`='" + Employee.email + "',`date_susp`='" + Employee.datesusp + "',`date_hired`='" + Employee.datehire + "' WHERE id=" + id + "");
         console.log(sqlquery);
         return db.query(sqlquery, callback);
     }

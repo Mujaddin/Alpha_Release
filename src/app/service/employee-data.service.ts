@@ -36,7 +36,7 @@ export class EmployeeDataService {
 
   }
 
-  deleteEmployeeWithId(item: Employee,id:number): any {
+  deleteEmployeeWithId(id:number): any {
     return this._http.delete(this.url + "/" + id, this.options).toPromise()       
     .then(this.extractData)       
     .catch(this.handleError);
@@ -45,15 +45,16 @@ export class EmployeeDataService {
   addEmployee(item: Employee): any {
     let body = JSON.stringify(item);
     console.log(body);
-    let header=new Headers();
-    header.append('Content-Type','application/json');
-    let res=new RequestOptions({headers:header});
-    return this._http.post(this.url, body, res).map((res:Response)=>res.json());
+    return this._http.post(this.url, body, this.options).toPromise()       
+    .then(this.extractData)       
+    .catch(this.handleError);
   }
 
-  editEmployeeWithId(item: Employee): any {
+  editEmployeeWithId(item: Employee,id:number): any {
     let body = JSON.stringify(item);
-    return this._http.put(this.url + "/?" + item.id, body, this.options).toPromise()       
+    item.id=id;
+    console.log(id);
+    return this._http.put(this.url + "/" + id, body, this.options).toPromise()       
     .then(this.extractData)       
     .catch(this.handleError);
   }

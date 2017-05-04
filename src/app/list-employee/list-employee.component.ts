@@ -18,7 +18,7 @@ export class ListEmployeeComponent implements OnInit {
   selectedEmployee: any = 0;
   idSelectedEmployee: number;
   employeescount: number;
-  deleteState:boolean=true;
+  deleteState: boolean = true;
   sortAsc: boolean;
   private subscription: Subscription;
 
@@ -33,12 +33,19 @@ export class ListEmployeeComponent implements OnInit {
 
 
   getAllEmployee() {
+      console.log("Berhasil2");
     this.service(this._employeedata.getAllEmployee());
-
   }
 
   ngOnInit() {
     this.getAllEmployee();
+    this._employeeService.notifyStream$.subscribe(response => {
+     
+      if (response.hasOwnProperty('option') && response.option == 'submit') {
+     this.search("");
+      }
+      
+    });
   }
 
   sort(): void {
@@ -63,29 +70,22 @@ export class ListEmployeeComponent implements OnInit {
     this.selectedEmployee = item;
     this.idSelectedEmployee = item.id;
     this._employeeService.setSelectedEmployee(item);
-    this.deleteState=false;
+    this.deleteState = false;
   }
 
-  onEditData(item: Employee) {
-    this._employeedata.editEmployeeWithId(item)
-      .then(() => this.getAllEmployee());
-  }
 
-  onSaveData(item: Employee) {
-    this._employeedata.addEmployee(item)
-      .then(() => this.getAllEmployee());
-  }
 
-  onDeleteData(item: Employee,id:number) {
-    this._employeedata.deleteEmployeeWithId(item,id)
+  onDeleteData( id: number) {
+    this._employeedata.deleteEmployeeWithId(id)
       .then(() => this.getAllEmployee());
   }
   //service selain CRUD
-delete(){
-  this.onDeleteData(this.selectedEmployee,this.idSelectedEmployee);
-  this.idSelectedEmployee=undefined;
-  this.deleteState=true;
-}
+  delete() {
+    this.onDeleteData(this.idSelectedEmployee);
+    this.idSelectedEmployee = undefined;
+    this.deleteState = true;
+    this.search("");
+  }
   openFilter() {
     let dialogRef = this.dialog.open(DialogFilterComponent);
     dialogRef.afterClosed().subscribe(result => {
@@ -100,7 +100,7 @@ delete(){
           this.employees = this.employeescopy.filter(employees => employees.location === params.location);
           this.employeescount = this.employees.length;
         } else {
-          this.employees=this.employeescopy;
+          this.employees = this.employeescopy;
           this.employeescount = this.employees.length;
         }
       } else {

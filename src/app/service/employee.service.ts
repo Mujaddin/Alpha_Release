@@ -10,6 +10,7 @@ import { EmployeeDataService } from '../service/employee-data.service';
 export class EmployeeService implements OnInit {
     selectedEmployee: Employee;
     subjectSelectedEmployee: Subject<Employee> = new Subject<Employee>();
+    private notify=new Subject<any>();
     subjectChange: Subject<boolean> = new Subject<boolean>();
     constructor(private _employeedata: EmployeeDataService) { }
     ngOnInit() { }
@@ -33,4 +34,11 @@ export class EmployeeService implements OnInit {
     getSelectedEmployee(): Observable<Employee> {
         return this.subjectSelectedEmployee.asObservable();
     }
+
+     notifyStream$=this.notify.asObservable();
+
+     notifyOtherComponent(data:any){
+        this.notify.next(data);
+    }
+
 }

@@ -23,7 +23,7 @@ export class FormEmployeeComponent implements OnInit {
   fileList: FileList;
   deletState: boolean;
   imgSelect: string;
-
+  selectEmployee: number;
 
 
   gender = [
@@ -78,25 +78,27 @@ export class FormEmployeeComponent implements OnInit {
         gender: new FormControl(e.gender),
         maindiv: new FormControl(e.division),
         location: new FormControl(e.location),
+        imgpath: new FormControl(e.imgpath)
       });
     } else {
       this.imgSelect = "../../assets/unknown.jpg"
       this.formEmployee = new FormGroup({
-        firstName: new FormControl('Muhammad',Validators.compose([Validators.required])),
-        lastName: new FormControl('Jamaluddin'),
-        dob: new FormControl('1994-06-23T17:00:00.000Z'),
-        nationality: new FormControl('Indonesian'),
-        phone: new FormControl('+6281554267562'),
-        marital: new FormControl('Single'),
-        email: new FormControl('muhammad.jamaluddin@mitrais.com'),
-        subdiv: new FormControl('Java BootCamp'),
-        status: new FormControl('Contract'),
+        firstName: new FormControl('', Validators.compose([Validators.required])),
+        lastName: new FormControl(''),
+        dob: new FormControl(''),
+        nationality: new FormControl(''),
+        phone: new FormControl('+'),
+        marital: new FormControl(''),
+        email: new FormControl(''),
+        subdiv: new FormControl(' '),
+        status: new FormControl(''),
         datesusp: new FormControl(''),
-        datehire: new FormControl('2017-04-20T17:00:00.000Z'),
-        grade: new FormControl('SE-PG'),
-        gender: new FormControl('Male'),
-        maindiv: new FormControl('CDC AsteRx'),
-        location: new FormControl('jakarta'),
+        datehire: new FormControl(''),
+        grade: new FormControl(''),
+        gender: new FormControl(''),
+        maindiv: new FormControl(''),
+        location: new FormControl(''),
+        imgpath: new FormControl("")
       });
     }
 
@@ -105,6 +107,7 @@ export class FormEmployeeComponent implements OnInit {
 
   ngOnChanges() {
     if (this.emp != undefined) {
+      this.imgSelect = this.emp.imgpath;
       this.formEmployee.setValue({
         firstName: this.emp.firstname,
         lastName: this.emp.lastname,
@@ -121,21 +124,21 @@ export class FormEmployeeComponent implements OnInit {
         maindiv: this.emp.division,
         location: this.emp.location,
         gender: this.emp.gender,
+        imgpath: this.imgSelect
       });
     }
   }
 
   onSave(emp: Employee) {
-    this._employeeData.addEmployee(emp).subscribe(
-      (data: any) => {
-        console.log(data);
-      },
-      function (error) {
-        console.log(error);
-      },
-      function () {
-        console.log("On Complete");
-      });
+    console.log(emp);
+     if (this.selectEmployee) {
+      console.log("jamal  ",this.selectEmployee)
+      this._employeeData.editEmployeeWithId(emp, this.selectEmployee);
+    } else {
+      this._employeeData.deleteEmployeeWithId(this.selectEmployee)
+      this._employeeData.addEmployee(emp);
+    }
+    this._sharedService.notifyOtherComponent({ option: 'submit', value: 'add' });
   }
 
   imageProcessing(photo) {
@@ -149,6 +152,7 @@ export class FormEmployeeComponent implements OnInit {
       emp => {
         this.emp = emp;
         this.formMake(emp[0])
+        this.selectedEmployee = emp[0].id;
       }
     );
   }
