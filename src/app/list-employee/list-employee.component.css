@@ -5,6 +5,12 @@ body {
     height: 100%;
     width: 100%;
 }
+.floating-button {
+  position: absolute;
+  left: 22%;
+  bottom: 50%;
+  z-index: 1000;
+}
 .seachbar-counter {
     width: 100px;
     height: 30px;

@@ -7,15 +7,22 @@ import { EmployeeDataService } from "app/service/employee-data.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @Input() employeeListId: any;
-  @Output() employeeSelected: any;
+  @Output() changeEmpoyee: any;
+  @Output() createNew: any;
   title = 'app works!';
   constructor() {
 
   }
+
   ngOnInit(): void {
-    if (this.employeeListId) {
-      this.employeeSelected = this.employeeSelected;
-    }
+
+  }
+
+  onAddNew() {
+
+  }
+
+  onChangeEmployee() {
+    this.changeEmpoyee = true;
   }
 }

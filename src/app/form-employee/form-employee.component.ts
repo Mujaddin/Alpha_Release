@@ -14,10 +14,9 @@ import { EmployeeService } from '../service/employee.service';
 export class FormEmployeeComponent implements OnInit {
   @Input() emp: any;
   @Output() save = new EventEmitter();
-  @Output() update = new EventEmitter();
-  @Output() delete = new EventEmitter();
+ 
 
-
+nullEmp:Employee;
   formEmployee: FormGroup;
   formNew: FormGroup;
   fileList: FileList;
@@ -81,27 +80,9 @@ export class FormEmployeeComponent implements OnInit {
         imgpath: new FormControl(e.imgpath)
       });
     } else {
-      this.imgSelect = "../../assets/unknown.jpg"
-      this.formEmployee = new FormGroup({
-        firstName: new FormControl('', Validators.compose([Validators.required])),
-        lastName: new FormControl(''),
-        dob: new FormControl(''),
-        nationality: new FormControl(''),
-        phone: new FormControl('+'),
-        marital: new FormControl(''),
-        email: new FormControl(''),
-        subdiv: new FormControl(' '),
-        status: new FormControl(''),
-        datesusp: new FormControl(''),
-        datehire: new FormControl(''),
-        grade: new FormControl(''),
-        gender: new FormControl(''),
-        maindiv: new FormControl(''),
-        location: new FormControl(''),
-        imgpath: new FormControl("")
-      });
+     
+      this.getNullEmp();
     }
-
 
   }
 
@@ -131,15 +112,17 @@ export class FormEmployeeComponent implements OnInit {
 
   onSave(emp: Employee) {
     console.log(emp);
-     if (this.selectEmployee) {
-      console.log("jamal  ",this.selectEmployee)
+     if (this.selectEmployee!=undefined) {
+      console.log("jamal delete ",this.selectEmployee);
       this._employeeData.editEmployeeWithId(emp, this.selectEmployee);
     } else {
-      this._employeeData.deleteEmployeeWithId(this.selectEmployee)
+      console.log("jamal  ",this.selectEmployee);
       this._employeeData.addEmployee(emp);
     }
+  this.getNullEmp();
     this._sharedService.notifyOtherComponent({ option: 'submit', value: 'add' });
-  }
+
+}
 
   imageProcessing(photo) {
     var readImage = new FileReader();
@@ -150,12 +133,40 @@ export class FormEmployeeComponent implements OnInit {
   selectedEmployee() {
     this._sharedService.getSelectedEmployee().subscribe(
       emp => {
-        this.emp = emp;
+        this.emp = emp[0];
         this.formMake(emp[0])
-        this.selectedEmployee = emp[0].id;
+        this.selectEmployee = emp[0].id;
       }
     );
   }
+onCancel(){
+   if (this.selectEmployee!=undefined) {
+      this.formMake(this.emp);
+    } else {
+       this.formMake(null);
+    }
+}
 
+getNullEmp(){
+   this.imgSelect = "../../assets/unknown.jpg"
+  this.formEmployee = new FormGroup({
+        firstName: new FormControl('', Validators.compose([Validators.required])),
+        lastName: new FormControl(''),
+        dob: new FormControl(''),
+        nationality: new FormControl(''),
+        phone: new FormControl('+'),
+        marital: new FormControl(''),
+        email: new FormControl(''),
+        subdiv: new FormControl(' '),
+        status: new FormControl(''),
+        datesusp: new FormControl(''),
+        datehire: new FormControl(''),
+        grade: new FormControl(''),
+        gender: new FormControl(''),
+        maindiv: new FormControl(''),
+        location: new FormControl(''),
+        imgpath: new FormControl("")
+      });
+}
 
 }

@@ -13,7 +13,7 @@ import { EmployeeService } from './service/employee.service';
 
 import { EmployeeRouting } from './service/employee.routing';
 import { FilterPipe } from './service/filter.pipe';
-import { SharedService } from './service/observable.service';
+
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { FormEmployeeComponent } from './form-employee/form-employee.component';
 import { DialogFilterComponent } from './dialog-filter.component';
@@ -40,7 +40,7 @@ import { DialogFilterComponent } from './dialog-filter.component';
    entryComponents: [ 
     DialogFilterComponent
   ],
-  providers: [EmployeeDataService, SharedService, EmployeeRouting, EmployeeService],
+  providers: [EmployeeDataService,  EmployeeRouting, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

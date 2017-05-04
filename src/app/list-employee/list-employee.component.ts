@@ -15,13 +15,14 @@ import { EmployeeService } from '../service/employee.service';
 export class ListEmployeeComponent implements OnInit {
   employees: Employee[] = [];
   employeescopy: Employee[] = [];
+  nullEmp:any;
   selectedEmployee: any = 0;
   idSelectedEmployee: number;
   employeescount: number;
   deleteState: boolean = true;
   sortAsc: boolean;
   private subscription: Subscription;
-
+  @Input() createNew:any;
   @Input('search-term')
   public term: string = null;
 
@@ -33,18 +34,17 @@ export class ListEmployeeComponent implements OnInit {
 
 
   getAllEmployee() {
-      console.log("Berhasil2");
     this.service(this._employeedata.getAllEmployee());
   }
 
   ngOnInit() {
     this.getAllEmployee();
     this._employeeService.notifyStream$.subscribe(response => {
-     
       if (response.hasOwnProperty('option') && response.option == 'submit') {
-     this.search("");
+        this.search("");
+             console.log("Berhasil2");
+        this.deleteState = true;
       }
-      
     });
   }
 
@@ -73,9 +73,7 @@ export class ListEmployeeComponent implements OnInit {
     this.deleteState = false;
   }
 
-
-
-  onDeleteData( id: number) {
+  onDeleteData(id: number) {
     this._employeedata.deleteEmployeeWithId(id)
       .then(() => this.getAllEmployee());
   }
@@ -86,14 +84,20 @@ export class ListEmployeeComponent implements OnInit {
     this.deleteState = true;
     this.search("");
   }
+
+onAddNew(){
+  
+
+}
+
   openFilter() {
     let dialogRef = this.dialog.open(DialogFilterComponent);
     dialogRef.afterClosed().subscribe(result => {
       this.filterDo(result);
     });
   }
-  filterDo(params: any) {
 
+  filterDo(params: any) {
     if (params) {
       if (params.gender === 'all') {
         if (params.location !== 'all') {
@@ -112,10 +116,14 @@ export class ListEmployeeComponent implements OnInit {
           this.employeescount = this.employees.length;
         }
       }
-
     }
   }
 
+refresh(){
+  this.search("");
+this.idSelectedEmployee=undefined;
+this._employeeService.setSelectedEmployee(this.nullEmp);
+}
 
   search(term: string) {
     this._employeedata.getAllEmployee()
@@ -124,6 +132,7 @@ export class ListEmployeeComponent implements OnInit {
         .filter(employees => (employees.firstname + " " + employees.lastname).toLowerCase().indexOf(term) >= 0))
       .then(() => this.employeescopy = this.employees)
       .then(() => this.employeescount = this.employees.length);
+       console.log("search berhasil");  
   }
 
   service(emp) {

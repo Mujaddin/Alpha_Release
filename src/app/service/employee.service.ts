@@ -18,7 +18,6 @@ export class EmployeeService implements OnInit {
     setSelectedEmployee(e: Employee) {
         console.log("set selected emp", e);
         if (e) {
-            
             this._employeedata.getEmployeeWithId(e.id).then(result => {
                 this.selectedEmployee = result;
                 this.subjectSelectedEmployee.next(result);
