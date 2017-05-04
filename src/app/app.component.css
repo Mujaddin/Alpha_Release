@@ -23,9 +23,8 @@ height: 600px;
     background-color:orange;
 }
 .floating-button {
-  position: absolute;
-  left: 22%;
+  position: fixed;
+right:100%;
   bottom: 50%;
-
-
+z-index: 100;
 }

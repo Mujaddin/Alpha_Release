@@ -1,7 +1,7 @@
 <div class="main-div">
     <div class="left-div">
-        <app-list-employee [createNew]="changeEmpoyee" ></app-list-employee>
-        
+        <app-list-employee (emp)="employeeListId" ></app-list-employee>
+       
     </div>
 </div>
 
@@ -11,7 +11,7 @@
             <ng-template md-tab-label>
                 <md-icon class="utility-status">person</md-icon>
             </ng-template>
-            <app-form-employee (save)="onChangeEmployee()" ></app-form-employee>
+            <app-form-employee  ></app-form-employee>
         </md-tab>
         <md-tab disabled="true">
             <ng-template md-tab-label>

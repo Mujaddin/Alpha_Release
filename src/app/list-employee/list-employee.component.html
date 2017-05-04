@@ -2,16 +2,16 @@
   <md-icon class="material-icons" (click)="refresh()">refresh</md-icon>
   <md-icon class="material-icons">search</md-icon>
   <input #searchb class="searchbar-input" placeholder="Search" size="15" (keyup)="search(searchb.value)">
-  <md-icon mdTooltip="Delete Selected Employee" class="material-icons delete" [hidden]="deleteState" (click)="delete()">delete</md-icon>
+  <md-icon mdTooltip="Delete Selected Employee" class="material-icons delete" [hidden]="deleteState" (click)="openDelete()">delete</md-icon>
   <md-icon mdTooltip="Sort employees by last name" class="material-icons sort" (click)="sort()">sort</md-icon>
   <md-icon mdTooltip="Filter employees button" class="material-icons filter" (click)="openFilter()">filter_list</md-icon>
   <span class="seachbar-counter">{{employeescount}}</span>
 
 </div>
- 
+ <button md-fab class="button-floating" (click)="newEmployee()">+</button>
 <body>
-
    <md-nav-list>
+     <div class="emp-not-found" *ngIf="employeescount === 0">We cannot found the employee</div>
     <span *ngFor="let emp of employees">
    <md-list-item [ngClass]="{'emp-selected':idSelectedEmployee===emp.id}"  
   (click)="onSelectEmployee(emp)">

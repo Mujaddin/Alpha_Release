@@ -14,9 +14,9 @@ import { EmployeeService } from '../service/employee.service';
 export class FormEmployeeComponent implements OnInit {
   @Input() emp: any;
   @Output() save = new EventEmitter();
- 
 
-nullEmp:Employee;
+
+  nullEmp: Employee;
   formEmployee: FormGroup;
   formNew: FormGroup;
   fileList: FileList;
@@ -80,7 +80,7 @@ nullEmp:Employee;
         imgpath: new FormControl(e.imgpath)
       });
     } else {
-     
+
       this.getNullEmp();
     }
 
@@ -112,61 +112,75 @@ nullEmp:Employee;
 
   onSave(emp: Employee) {
     console.log(emp);
-     if (this.selectEmployee!=undefined) {
-      console.log("jamal delete ",this.selectEmployee);
+    if (this.selectEmployee != undefined) {
+      console.log("jamal edit ", this.selectEmployee);
+      console.log(this.imgSelect);
+      emp.imgpath = this.imgSelect;
       this._employeeData.editEmployeeWithId(emp, this.selectEmployee);
     } else {
-      console.log("jamal  ",this.selectEmployee);
+      console.log(this.imgSelect);
+      emp.imgpath = this.imgSelect;
+      console.log("jamal  ", this.selectEmployee);
       this._employeeData.addEmployee(emp);
     }
-  this.getNullEmp();
+
+    this.getNullEmp();
     this._sharedService.notifyOtherComponent({ option: 'submit', value: 'add' });
 
-}
+  }
 
   imageProcessing(photo) {
     var readImage = new FileReader();
     readImage.onload = (photo: any) => { this.imgSelect = photo.target.result; }
     readImage.readAsDataURL(photo.target.files[0]);
+
   }
 
   selectedEmployee() {
     this._sharedService.getSelectedEmployee().subscribe(
       emp => {
-        this.emp = emp[0];
-        this.formMake(emp[0])
-        this.selectEmployee = emp[0].id;
+        if (emp[0] != undefined) {
+          this.emp = emp[0];
+          this.formMake(emp[0])
+          this.selectEmployee = emp[0].id;
+        }
+        else{
+          this.emp = emp;
+          this.formMake(emp)
+          this.selectEmployee = undefined;
+        
+        }
       }
     );
   }
-onCancel(){
-   if (this.selectEmployee!=undefined) {
+  onCancel() {
+    if (this.selectEmployee != undefined) {
       this.formMake(this.emp);
     } else {
-       this.formMake(null);
+      this.formMake(null);
     }
-}
+  }
 
-getNullEmp(){
-   this.imgSelect = "../../assets/unknown.jpg"
-  this.formEmployee = new FormGroup({
-        firstName: new FormControl('', Validators.compose([Validators.required])),
-        lastName: new FormControl(''),
-        dob: new FormControl(''),
-        nationality: new FormControl(''),
-        phone: new FormControl('+'),
-        marital: new FormControl(''),
-        email: new FormControl(''),
-        subdiv: new FormControl(' '),
-        status: new FormControl(''),
-        datesusp: new FormControl(''),
-        datehire: new FormControl(''),
-        grade: new FormControl(''),
-        gender: new FormControl(''),
-        maindiv: new FormControl(''),
-        location: new FormControl(''),
-        imgpath: new FormControl("")
-      });
-}
+  getNullEmp() {
+    this.imgSelect = "../../assets/unknown.jpg"
+    this.formEmployee = new FormGroup({
+      firstName: new FormControl('', Validators.compose([Validators.required])),
+      lastName: new FormControl(''),
+      dob: new FormControl(''),
+      nationality: new FormControl(''),
+      phone: new FormControl('+'),
+      marital: new FormControl(''),
+      email: new FormControl(''),
+      subdiv: new FormControl(' '),
+      status: new FormControl(''),
+      datesusp: new FormControl(''),
+      datehire: new FormControl(''),
+      grade: new FormControl(''),
+      gender: new FormControl(''),
+      maindiv: new FormControl(''),
+      location: new FormControl(''),
+      imgpath: new FormControl("")
+    });
+  }
 
 }

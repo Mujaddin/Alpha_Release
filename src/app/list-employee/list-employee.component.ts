@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeDataService } from '../service/employee-data.service';
 import { MdDialog, MdSnackBar } from '@angular/material';
 
+import{DialogContent} from '../dialog-delete.component';
 import { DialogFilterComponent } from '../dialog-filter.component';
 import { FilterPipe } from '../service/filter.pipe';
 import { Employee } from '../employee/employee';
@@ -70,8 +71,15 @@ export class ListEmployeeComponent implements OnInit {
     this.selectedEmployee = item;
     this.idSelectedEmployee = item.id;
     this._employeeService.setSelectedEmployee(item);
+    console.log(item);
     this.deleteState = false;
   }
+
+newEmployee(){
+  var newEmp=new Employee(100,"","","",null,"",null,null,"","","","","","","","","");
+
+  this._employeeService.setSelectedEmployee(newEmp);
+}
 
   onDeleteData(id: number) {
     this._employeedata.deleteEmployeeWithId(id)
@@ -85,11 +93,14 @@ export class ListEmployeeComponent implements OnInit {
     this.search("");
   }
 
-onAddNew(){
-  
-
+openDelete(){
+   let dialogRef = this.dialog.open(DialogContent);
+    dialogRef.afterClosed().subscribe(result=>{
+      if(result){
+        this.delete();
+      }
+    });
 }
-
   openFilter() {
     let dialogRef = this.dialog.open(DialogFilterComponent);
     dialogRef.afterClosed().subscribe(result => {
@@ -122,7 +133,7 @@ onAddNew(){
 refresh(){
   this.search("");
 this.idSelectedEmployee=undefined;
-this._employeeService.setSelectedEmployee(this.nullEmp);
+
 }
 
   search(term: string) {
@@ -143,3 +154,4 @@ this._employeeService.setSelectedEmployee(this.nullEmp);
 
 
 }
+

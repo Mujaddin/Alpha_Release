@@ -17,6 +17,7 @@ import { FilterPipe } from './service/filter.pipe';
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { FormEmployeeComponent } from './form-employee/form-employee.component';
 import { DialogFilterComponent } from './dialog-filter.component';
+import { DialogContent } from './dialog-delete.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DialogFilterComponent } from './dialog-filter.component';
     ListEmployeeComponent,
     FormEmployeeComponent,
     DialogFilterComponent,
+    DialogContent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { DialogFilterComponent } from './dialog-filter.component';
 // Md2DatepickerModule.forRoot(),
   ],
    entryComponents: [ 
-    DialogFilterComponent
+    DialogFilterComponent,
+    DialogContent
   ],
   providers: [EmployeeDataService,  EmployeeRouting, EmployeeService],
   bootstrap: [AppComponent]

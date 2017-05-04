@@ -5,12 +5,7 @@ body {
     height: 100%;
     width: 100%;
 }
-.floating-button {
-  position: absolute;
-  left: 22%;
-  bottom: 50%;
-  z-index: 1000;
-}
+
 .seachbar-counter {
     width: 100px;
     height: 30px;
@@ -24,6 +19,14 @@ body {
 .material-icons{
     cursor:pointer;
 }
+
+.button-floating{
+position: absolute;
+bottom:45%;
+left:23%;
+z-index: 200;
+}
+
 .emp-not-found {
     width:100%;
     background-color: rgba(242, 242, 242, 1);
